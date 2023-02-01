@@ -9,6 +9,11 @@ Tag.init(
     // define columns
 
     // Tag
+    id:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true
+    },
 
     // id
     
@@ -20,7 +25,9 @@ Tag.init(
     
     // Uses auto increment
     
-    // tag_name
+    tag_name:{
+      type: DataTypes.STRING
+    }
     
     // String
   },

@@ -13,7 +13,11 @@ Product.init(
 
         //     Product
 
-        // id
+        id:{
+          type: DataTypes.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
+        },
 
         // Integer
 
@@ -23,13 +27,22 @@ Product.init(
 
         // Uses auto increment
 
-        // product_name
+        product_name: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
 
         // String
 
         // Doesn't allow null values
 
-        // price
+        price:{
+          type: DataTypes.DECIMAL,
+          allowNull: false,
+          validate: {
+            isDecimal: true
+          }
+        },
 
         // Decimal
 
@@ -37,7 +50,14 @@ Product.init(
 
         // Validates that the value is a decimal
 
-        // stock
+        stock: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          defaultValue: 10,
+          validate: {
+            isNumeric: true
+          }
+        },
 
         // Integer
 
@@ -47,7 +67,13 @@ Product.init(
 
         // Validates that the value is numeric
 
-        // category_id
+        category_id:{
+          type: DataTypes.INTEGER,
+          references: {
+            model: "category",
+            key: "id",
+          },
+        }
 
         // Integer
 
